@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:true,limit:"16kb"})); // extended true for 
 app.use(express.static(path.join(__dirname,"public")))
 app.use(cookieParser())
 
-app.get('/',(req,res)=>{
+app.get('/',(_,res)=>{
     res.send("working!!!");
 })
 

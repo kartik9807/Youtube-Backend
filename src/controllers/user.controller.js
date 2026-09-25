@@ -231,6 +231,14 @@ const getUserChannelProfile = asyncHandler(async (req,res)=>{
                 as:"subscribedTo"
             } 
         },
+        { //? counting videos
+            $lookup:{
+                from:"videos", // model name changes in the DB
+                localField:"_id", // local field name in userModel
+                foreignField:"owner", // field name in video model
+                as:"videoCount"
+            }
+        },
         { //? field that has to be added in the userModel
             $addFields:{
                 subscriberCount:{
@@ -239,12 +247,15 @@ const getUserChannelProfile = asyncHandler(async (req,res)=>{
                 subscribedToCount:{
                     $size:"$subscribedTo" // $ is used because it is a field
                 },
-                isSubscribed:{
+                isSubscribed:{      
                     $cond:{
                         if:{$in:[req.user?._id,"$subscribers.subscriber"]}, // check if the user id is present in the subscriber list so that we can send true false to the frontend
                         then: true,
                         else:false
                     }
+                },
+                videoCount:{
+                    $size:"$videoCount" // $ is used because it is a field
                 }
             }
         },
@@ -257,6 +268,7 @@ const getUserChannelProfile = asyncHandler(async (req,res)=>{
                 subscribedToCount:1,
                 isSubscribed:1,
                 avatar:1,
+                videoCount:1,
                 coverImage:1
             }
         }

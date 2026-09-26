@@ -71,7 +71,7 @@ const registerUser = asyncHandler(async (req,res)=>{
         username:username.toLowerCase(),
         email,
         password,
-        avatar:avatar.url, 
+        avatar:avatar?.url,
         coverImage:coverImage?.url || ""   
     })
     const createdUser = await userModel.findById(user._id).select('-password -refreshToken');

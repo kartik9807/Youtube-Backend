@@ -28,7 +28,10 @@ const getAllVideos = asyncHandler(async (req, res) => {
 
     const allvideos = await Video.aggregate([
         {
-            $match:filterMatch
+            $match:{
+                ...filterMatch,
+                isPublished:true
+            }
         },
         {
             $sort:sortOptions

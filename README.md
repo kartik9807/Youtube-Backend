@@ -191,42 +191,7 @@ PATCH  /api/v1/playlist/add/:videoId/:playlistId
 DELETE /api/v1/playlist/remove/:videoId/:playlistId
 ```
 
-> Update these routes if your actual route structure differs.
-
 ---
-
-# 🧪 API Testing
-
-The APIs can be tested using tools such as:
-
-* Postman
-* Thunder Client
-* Insomnia
-
-A typical development flow is:
-
-```text
-Register User
-     ↓
-Login
-     ↓
-Receive Access/Refresh Tokens
-     ↓
-Create Video
-     ↓
-Upload Thumbnail/Video
-     ↓
-Comment / Like / Subscribe
-     ↓
-Fetch Videos
-     ↓
-Test Pagination & Aggregation
-```
-
----
-
-
-
 
 Built while learning and exploring backend development with:
 

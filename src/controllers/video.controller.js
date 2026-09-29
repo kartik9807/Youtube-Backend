@@ -4,7 +4,7 @@ const {User} = require("../models/user.model.js")
 const {ApiError} = require("../utils/ApiError.js")
 const {ApiResponse} = require("../utils/ApiResponse.js")
 const {asyncHandler} = require("../utils/asyncHandler.js")
-const {uploadOnCloudinary} = require("../require(tils/cloudinary.js")
+const {uploadOnCloudinary} = require("../utils/cloudinary.js")
 
 
 const getAllVideos = asyncHandler(async (req, res) => {

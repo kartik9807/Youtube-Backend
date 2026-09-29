@@ -82,7 +82,7 @@ const asyncHandler = (fn)=>{
 // In development (NODE_ENV not set to production): an HTML page containing the error message + full stack trace
 // In production: just 500 Internal Server Error (no details, to avoid leaking internals)
 
-module.exports = asyncHandler
+module.exports.asyncHandler = asyncHandler
 
 
 //! try-catch asyncHandler wrapper

@@ -1,6 +1,6 @@
 const userModel = require("../models/user.model");
 const ApiError = require("../utils/ApiError");
-const asyncHandler = require("../utils/asyncHandler.js");
+const {asyncHandler} = require("../utils/asyncHandler.js");
 const jwt = require('jsonwebtoken')
 
 module.exports.isLoggedin = asyncHandler(async (req,_,next)=>{

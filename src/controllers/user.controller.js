@@ -3,7 +3,7 @@ var options = {
         httpOnly:true, // blocks client-side JavaScript from accessing the cookie
         secure:true // Requires HTTPS (highly recommended)
 }
-const asyncHandler = require('../utils/asyncHandler.js')
+const {asyncHandler} = require('../utils/asyncHandler.js')
 const ApiError = require('../utils/ApiError.js')
 const ApiResponse = require('../utils/ApiResponse.js')
 const userModel = require('../models/user.model.js');

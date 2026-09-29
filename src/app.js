@@ -38,6 +38,15 @@ app.use("/api/v1/likes", likeRouter)
 app.use("/api/v1/playlist", playlistRouter)
 app.use("/api/v1/dashboard", dashboardRouter)
 
+//? user define error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack); // logs full stack trace to console
+
+  res.status(err.statusCode || 500).json({
+    success: false,
+    message: err.message || "Internal Server Error"
+  });
+});
 
 
 module.exports = app
